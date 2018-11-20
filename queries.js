@@ -110,39 +110,61 @@ const knex = require('knex')(DATABASE);
 // 10. Create three restaurants and return id and name
 // Create three restaurants using a single command, with values of your choosing, returning the id and name of each restaurant.
   
-knex('restaurants')
-  .insert([{ 
-    name: 'Byte Cafe',
-    borough: 'Brooklyn',
-    cuisine: 'coffee',
-    address_building_number: '123',
-    address_street: 'Atlantic Avenue',
-    address_zipcode: '11231'  
-  }, { 
-    name: 'Bit Cafe',
-    borough: 'Brooklyn',
-    cuisine: 'coffee',
-    address_building_number: '231',
-    address_street: 'Atlantic Avenue',
-    address_zipcode: '11231'  
-  },
-  { 
-    name: 'Bits Cafe',
-    borough: 'Brooklyn',
-    cuisine: 'coffee',
-    address_building_number: '321',
-    address_street: 'Atlantic Avenue',
-    address_zipcode: '11231'  
-  }
-  ])
-  .returning(['id', 'name'])
-  .then(console.log);
+// knex('restaurants')
+//   .insert([{ 
+//     name: 'Byte Cafe',
+//     borough: 'Brooklyn',
+//     cuisine: 'coffee',
+//     address_building_number: '123',
+//     address_street: 'Atlantic Avenue',
+//     address_zipcode: '11231'  
+//   }, { 
+//     name: 'Bit Cafe',
+//     borough: 'Brooklyn',
+//     cuisine: 'coffee',
+//     address_building_number: '231',
+//     address_street: 'Atlantic Avenue',
+//     address_zipcode: '11231'  
+//   },
+//   { 
+//     name: 'Bits Cafe',
+//     borough: 'Brooklyn',
+//     cuisine: 'coffee',
+//     address_building_number: '321',
+//     address_street: 'Atlantic Avenue',
+//     address_zipcode: '11231'  
+//   }
+//   ])
+//   .returning(['id', 'name'])
+//   .then(console.log);
 
 // 11. Update a record
 // Update the record whose value for nyc_restaurant_id is '30191841'. Change the name from 'Dj Reynolds Pub And Restaurant' to 'DJ Reynolds Pub and Restaurant'.
   
+// knex('restaurants')
+//   .where({ nyc_restaurant_id: 30191841 })
+//   .update({
+//     'name': 'DJ Reynolds Pub and Restaurant'
+//   })
+//   .returning(['id', 'name'])
+//   .then(console.log);
+
 // 12. Delete by id
 // Delete the grade whose id is 10.
-  
+
+// knex('grades')
+//   .where('id', '10')
+//   .del()
+//   .then(console.log);
+
 // 13. A blocked delete
 // Try deleting the restaurant with id of 22. You should get a foreign key constraints error?
+
+// knex('restaurants')
+//   .where('id', '22')
+//   .del()
+//   .then(console.log);
+
+/* 
+  Unhandled rejection error: update or delete on table "restaurants" violates foreign key constraint "grades_restaurant_id_fkey" on table "grades"
+*/
