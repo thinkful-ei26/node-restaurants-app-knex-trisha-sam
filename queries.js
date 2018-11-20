@@ -1,5 +1,7 @@
 'use strict';
 
+/* Knex API https://knexjs.org/ */
+
 const { DATABASE } = require('./config');
 const knex = require('knex')(DATABASE);
 
